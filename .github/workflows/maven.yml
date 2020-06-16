@@ -22,9 +22,15 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: upload jar
+    - name: upload jar (to workflow's artifact) 
       uses: actions/upload-artifact@v1
       with:
         name: hello-1.0-SNAPSHOT.jar
         path: target/hello-1.0-SNAPSHOT.jar
+    - name: test for secret environment
+      env:
+         TEST_ENV: ${{ secrets.TEST_SECRET }}      
+      run: echo $TEST_ENV
 
+
+   
