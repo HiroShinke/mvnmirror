@@ -36,6 +36,6 @@ jobs:
       run: jfrog --version
     - name: build and install by jfrog
       run: |
-         jfrog rt c rt-server-1 --apikey=AKCp5fTtyDVzJPfVsWBmYWqLNa36ttb7T19Q7Y1honS49AwBW7qoPVJYw5GjTa3TrwsVzRrFB --url=http://ma2.japaneast.cloudapp.azure.com:8082/artifactory/ --interactive=false
+         jfrog rt c rt-server-1 --user=admin --apikey=AKCp5fTtyDVzJPfVsWBmYWqLNa36ttb7T19Q7Y1honS49AwBW7qoPVJYw5GjTa3TrwsVzRrFB --url=http://ma2.japaneast.cloudapp.azure.com:8082/artifactory/ --interactive=false
          jfrog rt mvnc --server-id-resolve=rt-server-1 --server-id-deploy=rt-server-1 --repo-resolve-releases=libs-release --repo-deploy-releases=libs-release --repo-resolve-snapshots=libs-snapshot --repo-deploy-snapshots=libs-snapshot
          jfrog rt mvn clean install
